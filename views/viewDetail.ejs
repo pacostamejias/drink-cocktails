@@ -1,0 +1,25 @@
+<%- include("partials/header.ejs") %>
+
+<div class="container cocktail-detail">
+    <h1><%= cocktailInfo.strDrink %></h1>
+    <div class="row mt-5">
+        <div class="col-lg-6">
+            <img class="cocktail-img img-fluid" src="<%= cocktailInfo.strDrinkThumb %>" alt="cocktail-img">
+        </div>
+        <div class="col-lg-6 mt-3 mt-lg-0">
+            <h3>Ingredients</h3>
+            <ul>
+                <% for(var i=0; i < 14; i++) {%>
+                    <% if(ingredients[i] != null) { %>
+                        <li><%= measures[i] %> of <%= ingredients[i] %></li>
+                    <% }%>
+                <% } %>
+            </ul>
+            <h3>Instructions</h3> 
+            <p><%= cocktailInfo.strInstructions %></p>
+            <label class="fw-bold">Type of Glass: </label><%= cocktailInfo.strGlass %>
+        </div>
+    </div>
+</div>
+ 
+<%- include("partials/footer.ejs") %>

@@ -1,0 +1,28 @@
+<%- include("partials/header.ejs") %>
+
+<div class="container">
+    <h2 class="pb-5">Gin Cocktails Recipes</h2>
+
+    <% if (locals.cocktailList) { %>
+        <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-5">
+            <% for(var i=0; i<cocktailList.length; i++) {%>
+                <div class="col">
+                    <div class="card shadow-sm">
+                        <img class="cocktail-img" src="<%= cocktailList[i].strDrinkThumb %>/preview" alt="cocktail-img">
+                        <div class="card-body">
+                            <div class="d-flex justify-content-between align-items-center">
+                                <h5 class="card-text"><%=cocktailList[i].strDrink %> </h5>
+                                <a href="/view-detail/<%= cocktailList[i].idDrink %>" class="btn btn-sm btn-light">
+                                    View
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+             <% } %>
+        </div>        
+    <% }%>
+
+</div>
+
+<%- include("partials/footer.ejs") %>
